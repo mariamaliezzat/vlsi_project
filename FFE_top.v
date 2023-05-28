@@ -1,4 +1,4 @@
-module top #(
+module FFE_top #(
     parameter DATA_WIDTH =12,
     parameter NUM_STAGES =2
 
@@ -7,10 +7,11 @@ module top #(
     input   wire                                    rst_n,
     input   wire                                    load_in,
     input   wire    signed  [DATA_WIDTH - 1 : 0]    data_in,
-    output  reg     signed  [DATA_WIDTH - 1 : 0]    data_out
+    output  reg     signed  [DATA_WIDTH - 1 : 0]    data_out,
+    output  reg                                     data_valid
 );
-    wire                                         sel              ;
-    wire                                         enable           ;
+    reg                                          sel              ;
+    reg                                          enable           ;
     reg       signed    [DATA_WIDTH-1:0]         acc              ;
     wire      signed    [DATA_WIDTH-1:0]         mux_out          ;
     wire      signed    [2*DATA_WIDTH-1:0]       mul_out_long     ;
@@ -26,6 +27,34 @@ module top #(
     assign mux_out      = sel ? 'd0 : acc          ;
     assign mul_out_long = rom_r_data * fifo_r_data ;
     assign mul_out      = mul_out_long >> 11       ;
+
+    always @(posedge clk , negedge rst_n) begin
+        if(!rst_n)
+            begin
+                enable  <= 1'b0;
+            end
+        else
+            if (count == 'd3) begin
+                enable  <= 1'b1;
+            end else begin
+                enable  <= 1'b0;
+            end
+    end
+
+    always @(posedge clk , negedge rst_n) begin
+        if(!rst_n)
+            begin
+                sel     <= 1'b0;
+            end
+        else
+            if (load_in_sync) begin
+                sel     <= 1'b1;
+            end else begin
+                sel     <= 1'b0;
+            end
+    end
+
+
     always @(posedge clk , negedge rst_n) 
         begin
             if (!rst_n) 
@@ -42,13 +71,17 @@ module top #(
             if (!rst_n) 
                 begin
                     data_out <= 'd0;
+                    data_valid <= 1'b0;
                 end 
             else 
                 begin
                     if (enable) 
                         begin
                             data_out <= acc;
+                            data_valid <= 1'b1;
                         end
+                    else
+                        data_valid <= 1'b0;
                     
                 end
         end

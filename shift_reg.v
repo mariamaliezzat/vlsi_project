@@ -13,7 +13,7 @@ module shift_reg #(
     assign  fifo_r_data = shift_reg[fifo_r_address];
 always @(posedge clk ,negedge rst_n) 
     begin
-        if (rst_n) 
+        if (!rst_n) 
             begin
                 shift_reg[0] <= 'd0;
                 shift_reg[1] <= 'd0;

@@ -1,0 +1,111 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Mohamed Ezzat/Desktop/fourth year - second term/vlsi 2/project
+vcounter
+Z1 !s110 1685292891
+!i10b 1
+!s100 1c=l?FGKf6d1Ge>S5EX5;3
+IOG?2ab0O^EN6_h5:?51Kc1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1685288589
+8counter.v
+Fcounter.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1685292891.000000
+Z5 !s107 top.v|shift_reg.v|ROM.v|load_sync.v|counter.v|
+Z6 !s90 counter.v|load_sync.v|ROM.v|shift_reg.v|top.v|
+!i113 1
+Z7 tCvgOpt 0
+vload_sync
+R1
+!i10b 1
+!s100 J`5R?fS:cMGCkA@f@nm@[2
+IXjB?PhDN92h2VJga`l3[<1
+R2
+R0
+w1685290869
+8load_sync.v
+Fload_sync.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+vROM
+R1
+!i10b 1
+!s100 3:2KDL^HCJDRDY9^RX`Wi2
+I@Z0F7@Pe<Wme9nQRPS]>f1
+R2
+R0
+w1685290394
+8ROM.v
+FROM.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@r@o@m
+vshift_reg
+R1
+!i10b 1
+!s100 O3QAkdV249SAZP7BG2CM;1
+IO?OYC?DH0jDZ=APBEc2[h2
+R2
+R0
+w1685289621
+8shift_reg.v
+Fshift_reg.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+vtop
+R1
+!i10b 1
+!s100 Y8ng6aQMbY]ZlGkdEF<aU0
+IbS6=[;ziI_neH::QLGSOE2
+R2
+R0
+w1685292889
+8top.v
+Ftop.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7

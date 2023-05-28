@@ -66,8 +66,8 @@ end
 
 task intialize;
     begin
-        $readmemb("../data_in_ref.txt",data_in_ref_tb);
-        $readmemb("../data_out_ref.txt",data_out_ref_tb);
+        $readmemb("data_in_ref.txt",data_in_ref_tb);
+        $readmemb("data_out_ref.txt",data_out_ref_tb);
         load_in_tb = 1'b0;
         data_in_tb = 'd0;
         ffe_clk_tb = 1'b1;
